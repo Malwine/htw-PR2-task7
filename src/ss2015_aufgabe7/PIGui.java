@@ -32,16 +32,14 @@ public class PIGui extends JFrame implements ActionListener, WindowListener, Cha
 	PIGui(){
 		super();
 		this.setTitle("Calculation of PI");
-		getContentPane().add( new PaintCanvas(), BorderLayout.NORTH);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel sliderLabel = new JLabel("pixel", JLabel.CENTER);
-	    sliderLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		getContentPane().add( new PaintCanvas(), BorderLayout.CENTER);
 	    
 	    JSlider pixel = initJSlider();
 	    
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(sliderLabel);
-	    this.add(pixel);
+		
+	    this.add(pixel, BorderLayout.SOUTH);
 		this.setSize(460,700);
 		this.setVisible(true);
 	}
