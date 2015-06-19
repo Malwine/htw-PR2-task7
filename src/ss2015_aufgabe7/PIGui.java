@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class PIGui extends JFrame implements ActionListener, WindowListener, ChangeListener{
+public class PIGui extends JFrame implements ActionListener, ChangeListener{
 	JPanel southPanel;
 	JSlider slider;
 	double pi;
@@ -35,7 +35,7 @@ public class PIGui extends JFrame implements ActionListener, WindowListener, Cha
 	PIGui(){
 		super("Calculation of PI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		getContentPane().add( new PaintCanvas(), BorderLayout.CENTER);
 	    
 		southPanel = initSouthPanel();
@@ -91,10 +91,10 @@ public class PIGui extends JFrame implements ActionListener, WindowListener, Cha
 	}
 
 	private JSlider initJSlider(){
-		JSlider pixel = new JSlider(JSlider.HORIZONTAL, 0, 30, 15);
+		JSlider pixel = new JSlider(JSlider.HORIZONTAL, 0, 10000, 5000);
 	    pixel.addChangeListener(this);
-	    pixel.setMajorTickSpacing(10);
-        pixel.setMinorTickSpacing(1);
+	    pixel.setMajorTickSpacing(2000);
+        pixel.setMinorTickSpacing(500);
         pixel.setPaintTicks(true);
         pixel.setPaintLabels(true);
         pixel.setBorder(BorderFactory.createEmptyBorder(0,0,10,0));
@@ -113,51 +113,11 @@ public class PIGui extends JFrame implements ActionListener, WindowListener, Cha
 	}
 
 	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
