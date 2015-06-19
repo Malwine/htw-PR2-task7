@@ -7,10 +7,13 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -18,6 +21,7 @@ import javax.swing.event.ChangeListener;
 public class PIGui extends JFrame implements ActionListener, WindowListener, ChangeListener{
 	JPanel southPanel;
 	JSlider slider;
+	double pi;
 	
 	private class PaintCanvas extends JPanel{
 		
@@ -53,22 +57,37 @@ public class PIGui extends JFrame implements ActionListener, WindowListener, Cha
 		JPanel panelCenter = new JPanel(new GridLayout(3,2));
 		panel.add(panelCenter, BorderLayout.CENTER);
 		
-		JLabel label1 = new JLabel("Anzahl Punkte:");
+		JLabel label1 = new JLabel("Amount of pixels:");
 		label1.setBorder(new EmptyBorder(10,10,10,10));
 		panelCenter.add(label1);
 		
-		JLabel label2 = new JLabel("Anzahl rote Punkte:");
+		JTextField  textFeld1 = new JTextField("100000");
+		panelCenter.add(textFeld1);
+		
+		JLabel label2 = new JLabel("Amount of red pixels:");
 		label2.setBorder(new EmptyBorder(10,10,10,10));
 		panelCenter.add(label2);
 		
-		JLabel label3 = new JLabel("Anzahl blaue Punkte:");
+		JTextField  textFeld2 = new JTextField("100000");
+		panelCenter.add(textFeld2);
+		
+		
+		JLabel label3 = new JLabel("Amount of blue pixels:");
 		label3.setBorder(new EmptyBorder(10,10,10,10));
 		panelCenter.add(label3);
 		
-		JLabel labelSouth = new JLabel("labelSouth");
-		panel.add(labelSouth, BorderLayout.SOUTH);
+		JTextField  textFeld3 = new JTextField("100000");
+		panelCenter.add(textFeld3);
 		
+		
+		pi = 3.1;
+		JLabel labelSouth = new JLabel("PI is about: " + pi);
+		labelSouth.setBorder(new EmptyBorder(10,10,10,10));
+		labelSouth.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(labelSouth, BorderLayout.SOUTH);
 		return panel;
+		
+		
 	}
 
 	private JSlider initJSlider(){
